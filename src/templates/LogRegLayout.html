@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Griela</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/LogRegStyle.css')}}"/>
+    {% block link %}
+    {% endblock %}
+</head>
+<body>
+    <article class="logo-ilustracion-container">
+        <section>
+            <a href="/Inicio" class="logo">
+                <p class="griela">Griela</p>
+                <p class="test">TEST</p>
+            </a>
+            <figure>
+                {% block img %}
+                {% endblock %}
+            </figure>
+        </section>
+    </article>
+    <article class="form-container">
+        {% block section %}
+        {% endblock %}
+    </article>
+</body>
+{% block script%}
+{% endblock %}
+</html>

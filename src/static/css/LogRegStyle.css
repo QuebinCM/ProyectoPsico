@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins";
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #efefe6;
+    height: 100vh;
+}
+
+.logo-ilustracion-container {
+    background-color: #293241;
+    padding: 100px;
+
+    & > section {
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 50px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.griela {
+    height: 40px;
+    color: #efefe6;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.test {
+    color: #ee6c4d;
+    font-size: 2.1rem;
+    font-weight: 400;
+}
+
+.form-container {
+    padding: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ee6c4d;
+}
+
+.input-label-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: solid 2px #707048;
+    width: 500px;
+
+    & label {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #293241;
+    }
+
+    & input {
+        width: 100%;
+        border: none;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #293241;
+        outline: none;
+        background-color: transparent;
+        padding: 5px;
+
+        &::placeholder {
+            color: #707048;
+        }
+    }
+}
+
+.input-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 10px;
+
+    & svg{
+        fill: #707048;
+    }
+}
+
+button {
+    border: none;
+    padding: 15px;
+    background-color: #ee6c4d;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #efefe6;
+    transition: 0.5s;
+    border-radius: 15px;
+
+    &:hover{
+        background-color: #ea481f;
+    }
+}
+
+.show-contra{
+    cursor: pointer;
+}

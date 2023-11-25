@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>Griela</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/InicioStyle.css')}}"/>
 </head>
 <body>
     <header>
         <article class="logo-menu-container">
             <div class="logo">
-                <p class="griela">Griela</h1>
-                <p class="test">TEST</h1>
+                <p class="griela">Griela</p>
+                <p class="test">TEST</p>
             </div>
-            <nav class="menu-container">
-                <ul class="menu">
-                    <li><a href="#">Elemento</a></li>
-                    <li><a href="#">Elemento</a></li>
-                    <li><a href="#">Elemento</a></li>
-                    <li><a href="#">Elemento</a></li>
-                </ul>
-            </nav>
+            <div class="menu-login-register-conteiner">
+                <nav class="menu-container">
+                    <ul class="menu">
+                        <li><a href="#test">Sobre el test</a></li>
+                        <li><a href="#que">¿Qué se evalua?</a></li>
+                        <li><a href="#como">¿Cómo se evalua?</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <a href="/Login" class="login">Ingresar</a>
+                    <a href="/Register" class="register">Unirse</a>
+                </div>
+            </div>
         </article>
     </header>
     <main>
@@ -37,16 +42,16 @@
                 </div>
                 <div>
                     <figure class="img-container">
-                        <img src="assets/img/img-inicio.jpg" alt="" width="500px" class="img">
+                        <img src="/static/img/ilustracion-inicio.png" alt="" width="500px" class="img">
                     </figure>
                 </div>
             </section>
         </article>
-        <article class="tests-container">
+        <article class="tests-container" id="test">
             <section>
                 <div>
                     <figure class="img-container">
-                        <img src="assets/img/img-test.jpg" alt="" width="500px" class="img">
+                        <img src="/static/img/ilustracion-test.png" alt="" width="500px" class="img">
                     </figure>
                 </div>
                 <div class="content-tests-container">
@@ -57,13 +62,13 @@
                 </div>
             </section>
         </article>
-        <article class="que-container">
+        <article class="que-container" id="que">
             <section>
                 <h1>¿Qué se evalua?</h1>
                 <div class="card-que">
                     <h2>Depresión</h2>
                     <figure class="img-que-container">
-                        <img src="assets/img/img-depresion.jpg" alt="" width="100%" class="img-que">
+                        <img src="/static/img/ilustracion-depresion.png" alt="" width="100%" class="img-que">
                     </figure>
                     <p>La <strong>depresión</strong> es un trastorno del estado de ánimo que afecta cómo una persona se siente, piensa y maneja las actividades cotidianas. 
                         Puede causar una tristeza persistente, pérdida de interés en actividades placenteras, cambios en el apetito y el sueño, fatiga, 
@@ -72,7 +77,7 @@
                 <div class="card-que">
                     <h2>Ansiedad</h2>
                     <figure class="img-que-container">
-                        <img src="assets/img/img-ansiedad.jpg" alt="" width="100%" class="img-que">
+                        <img src="/static/img/ilustracion-ansiedad.png" alt="" width="100%" class="img-que">
                     </figure>
                     <p>La <strong>ansiedad</strong> es una respuesta natural del cuerpo ante situaciones percibidas como amenazantes o estresantes. 
                         Es una emoción normal que todos experimentamos en ciertos momentos de la vida. Sin embargo, cuando la ansiedad 
@@ -81,7 +86,7 @@
                 <div class="card-que">
                     <h2>Estrés</h2>
                     <figure class="img-que-container">
-                        <img src="assets/img/img-estres.jpg" alt="" width="100%" class="img-que">
+                        <img src="/static/img/ilustracion-estres.png" alt="" width="100%" class="img-que">
                     </figure>
                     <p>El <strong>estrés</strong> es una respuesta física y mental a demandas y presiones externas, ya sean reales o percibidas. 
                         Es una parte normal de la vida y puede ser motivador en ciertas situaciones. El problema surge cuando 
@@ -89,11 +94,11 @@
                 </div>
             </section>
         </article>
-        <article class="como-container">
+        <article class="como-container" id="como">
             <section>
                 <div>
                     <figure class="img-container">
-                        <img src="assets/img/img-como.jpg" alt="" width="500px" class="img">
+                        <img src="/static/img/ilustracion-como.png" alt="" width="500px" class="img">
                     </figure>
                 </div>
                 <div class="content-como-container">

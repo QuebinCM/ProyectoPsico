@@ -1,0 +1,37 @@
+.register-form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    & p{
+        font-size: 1.1rem;
+        color: #293241;
+    }
+
+    & a{
+        text-decoration: none;
+        font-size: 1.1rem;
+        color: #ee6c4d;
+        border-bottom: solid 2px #ee6c4d;
+        transition: 0.3s;
+
+        &:hover{
+            color: #ea481f;
+            border-color: #ea481f;
+        }
+    }
+}
