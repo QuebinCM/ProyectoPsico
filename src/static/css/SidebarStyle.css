@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+    outline: none;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    height: 100vh;
+    background-color: #F2F5FD;
+}
+
+.divisor{
+    height: 2px;
+    width: 100%;
+    margin: 40px auto;
+    background-color: #ee6c4d;
+}
+
+.sidebar-container{
+    background-color: #293241;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto 1fr auto;
+}
+
+.logo {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+
+    & .griela {
+        height: 35px;
+        color: #F2F5FD;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    & .test {
+        color: #ee6c4d;
+        font-size: 1.6rem;
+        font-weight: 400;
+    }
+}
+
+.user-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    & div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.user-figure{
+    background-color: #F2F5FD;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 140px;
+    width: 140px;
+
+    & svg{
+        padding: 15px;
+        fill: #ee6c4d;
+    }
+}
+
+.user-name{
+    color: #F2F5FD;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.user-mail{
+    color: #8E949F;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+.nuevo-test-container{
+    & button{
+        background-color: #ee6c4d;
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 10px 0px;
+        border-radius: 30px;
+
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #F2F5FD;
+
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover{
+            background-color: #ea481f;
+        }
+    }
+}
+
+.logout-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout{
+    text-decoration: none;
+    color: #F2F5FD;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        background-color: #ee6c4d;
+        height: 4px;
+        width: 100%;
+        left: 0;
+        bottom: -4px;
+        border-radius: 2px;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover{
+        color: #ee6c4d;
+
+        & svg {
+            fill: #ee6c4d;
+        }
+    }
+
+    &:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    & svg{
+        transition: 0.3s;
+        height: 1.2rem;
+        fill: #F2F5FD;
+    }
+}

@@ -1,0 +1,42 @@
+.dashboard-container {
+    margin: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.block {
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    
+    box-shadow: 5px 5px 20px 1px rgba(142, 148, 159, 0.2);
+}
+
+.block-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    color: #293241;
+
+    & .bar{
+        height: 4px;
+        width: 100%;
+        background-color: #ee6c4d;
+    }
+    
+    & h3{
+        color: #8e949f;
+    }
+}
+
+.historial-container{
+    grid-row: span 2;
+}
+
+.resultados-container{
+    grid-column: span 2;
+}
