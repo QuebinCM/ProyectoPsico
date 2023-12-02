@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Griela</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Style.css')}}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/SidebarStyle.css')}}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/DashboardStyle.css')}}"/>
 </head>
@@ -26,7 +27,7 @@
             </section>
             <div class="divisor"></div>
             <div class="nuevo-test-container">
-                <button>Nuevo test</button>
+                <a href="/Test">Iniciar test</a>
             </div>
             <div>
                 <div class="divisor"></div>

@@ -23,6 +23,7 @@
     color: #293241;
 
     & .bar{
+        border-radius: 2px;
         height: 4px;
         width: 100%;
         background-color: #ee6c4d;

@@ -1,7 +1,3 @@
-:root {
-    --principal-color: #ee6c4d;
-}
-
 header {
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
@@ -28,13 +24,13 @@ header {
 
     & .griela {
         height: 35px;
-        color: #F2F5FD;
+        color: #f2f5fd;
         font-size: 2rem;
         font-weight: 600;
     }
 
     & .test {
-        color: var(--principal-color);
+        color: #ee6c4d;
         font-size: 1.6rem;
         font-weight: 400;
     }
@@ -49,7 +45,7 @@ header {
 
 .login {
     text-decoration: none;
-    color: #F2F5FD;
+    color: #f2f5fd;
     font-weight: 600;
     font-size: 1.1rem;
     transition: 0.3s;
@@ -81,7 +77,7 @@ header {
 
 .register {
     text-decoration: none;
-    color: #F2F5FD;
+    color: #f2f5fd;
     font-weight: 600;
     font-size: 1.1rem;
 
@@ -96,7 +92,7 @@ header {
     }
 }
 
-.inicio-container {
+.inicio-test-container {
     width: 100%;
     background-color: #293241;
     padding-top: 104px;
@@ -113,160 +109,187 @@ header {
     }
 }
 
-.content-inicio-container {
+.content-inicio-test-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
     & h1 {
-        color: var(--principal-color);
+        color: #ee6c4d;
         font-weight: 600;
         font-size: 3rem;
     }
 
     & p {
-        color: #F2F5FD;
+        color: #f2f5fd;
         font-weight: 300;
         font-size: 1.2rem;
     }
 
-    & a {
-        align-self: flex-end;
-        text-decoration: none;
-        color: #F2F5FD;
-        background-color: var(--principal-color);
-        padding: 15px 25px;
-        border-radius: 30px;
-        box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-
-        font-size: 1.1rem;
-        font-weight: 600;
-
-        &:hover {
-            background-color: #ea481f;
-        }
-    }
-}
-
-/* Sobre el test */
-.tests-container {
-    width: 100%;
-    background-color: #F2F5FD;
-
-    & section {
-        padding: 80px 0px;
-        width: 70%;
-        margin: auto;
-        display: flex;
-        flex-direction: row;
-        gap: 50px;
-        justify-content: space-around;
-        align-items: center;
-    }
-}
-
-.content-tests-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    & h1 {
-        color: var(--principal-color);
-        font-weight: 600;
-        font-size: 3rem;
-    }
-
-    & p {
-        color: #293241;
-        font-weight: 400;
+    & li {
+        color: #f2f5fd;
+        font-weight: 300;
         font-size: 1.2rem;
     }
 }
 
-/* ¿Qué se evalua? */
-
-.que-container {
+.test-form-container {
     width: 100%;
-    background-color: #ee6c4d;
+    background-color: #f2f5fd;
 
-    & section {
+    & h1 {
+        color: #ee6c4d;
+        font-weight: 600;
+        font-size: 3rem;
+    }
+
+    & form {
         padding: 80px 0px;
         width: 70%;
         margin: auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 50px;
-        row-gap: 10px;
-
-        & h1 {
-            grid-column: span 3;
-            color: #F2F5FD;
-            font-weight: 600;
-            font-size: 3rem;
-        }
     }
 }
 
-.card-que {
-    background-color: #F2F5FD;
-    padding: 40px;
-    border-radius: 40px;
-    box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.2);
+.test-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
+}
+
+.card-test-preg-abierta {
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+
+    box-shadow: 5px 5px 20px 1px rgba(142, 148, 159, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
     & h2 {
-        text-align: center;
-        color: var(--principal-color);
-        font-weight: 600;
-        font-size: 2.2rem;
+        font-size: 1.6rem;
+        color: #ee6c4d;
     }
 
-    & p {
+    & h3 {
+        font-size: 1.3rem;
+        font-weight: 500;
         color: #293241;
-        font-weight: 400;
-        font-size: 1.1rem;
+        padding-bottom: 10px;
     }
 }
 
-/* ¿Cómo se evalua? */
-.como-container {
-    width: 100%;
-    background-color: #F2F5FD;
+input {
+    width: calc(100% - 10px);
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #293241;
+    outline: none;
+    background-color: transparent;
+    padding: 5px;
+    border-bottom: solid 2px #8e949f;
 
-    & section {
-        padding: 80px 0px;
-        width: 70%;
-        margin: auto;
+    &::placeholder {
+        color: #8e949f;
+    }
+}
+
+.card-test {
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+
+    box-shadow: 5px 5px 20px 1px rgba(142, 148, 159, 0.2);
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 30px;
+    align-items: center;
+
+    & .content-preg {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .number-preg {
+        background-color: #ee6c4d;
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #f2f5fd;
+    }
+}
+
+.content-preg {
+    & h3 {
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: #293241;
+    }
+}
+
+.preg-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+
+    & div {
         display: flex;
         flex-direction: row;
-        gap: 50px;
-        justify-content: space-around;
-        align-items: center;
-    }
-}
-
-.content-como-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    & h1 {
-        color: var(--principal-color);
-        font-weight: 600;
-        font-size: 3rem;
+        justify-content: center;
     }
 
-    & p {
-        color: #293241;
+    & label {
+        font-size: 1.3rem;
         font-weight: 400;
-        font-size: 1.2rem;
+        color: #293241;
+        background-color: #f4f5f6;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        padding: 5px;
+
+        transition: 0.3s;
+
+        &:hover {
+            background-color: #ee6c4d;
+            color: #f2f5fd;
+        }
     }
 }
 
-/* footer */
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #ee6c4d;
+    color: #f2f5fd;
+}
+
+.button-enviar {
+    border: none;
+    color: #f2f5fd;
+    background-color: #ee6c4d;
+    padding: 15px 25px;
+    border-radius: 30px;
+    box-shadow: 5px 5px 20px 1px rgba(142, 148, 159, 0.2);
+    transition: 0.3s;
+
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    &:hover {
+        background-color: #ea481f;
+    }
+}
+
 footer {
     width: 100%;
     background-color: #293241;
@@ -294,7 +317,7 @@ footer {
         }
 
         & .test {
-            color: var(--principal-color);
+            color: #ee6c4d;
             font-size: 1.6rem;
             font-weight: 400;
         }
