@@ -5,4 +5,15 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     outline: none;
+
+    text-decoration: none;
+}
+
+:root {
+    --black-color: #0C0F13;
+    --dark-blue-color: #293241;
+    --gray-color: #8E949F;
+    --white-color: #F2F5FD;
+    --orange-color: #ee6c4d;
+    --dark-orange-color: #ea481f;
 }

@@ -20,17 +20,17 @@
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    color: #293241;
+    color: var(--dark-blue-color);
 
     & .bar{
         border-radius: 2px;
         height: 4px;
         width: 100%;
-        background-color: #ee6c4d;
+        background-color: var(--orange-color);
     }
     
     & h3{
-        color: #8e949f;
+        color: var(--gray-color);
     }
 }
 

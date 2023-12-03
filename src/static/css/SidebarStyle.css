@@ -2,7 +2,7 @@ main{
     display: grid;
     grid-template-columns: 350px 1fr;
     height: 100vh;
-    background-color: #F2F5FD;
+    background-color: var(--white-color);
 }
 
 .divisor{
@@ -10,11 +10,11 @@ main{
     width: 100%;
     border-radius: 2px;
     margin: 40px auto;
-    background-color: #ee6c4d;
+    background-color: var(--orange-color);
 }
 
 .sidebar-container{
-    background-color: #293241;
+    background-color: var(--dark-blue-color);
     padding: 50px;
     display: grid;
     grid-template-columns: 1fr;
@@ -28,13 +28,13 @@ main{
 
     & .griela {
         height: 35px;
-        color: #F2F5FD;
+        color: var(--white-color);
         font-size: 2rem;
         font-weight: 600;
     }
 
     & .test {
-        color: #ee6c4d;
+        color: var(--orange-color);
         font-size: 1.6rem;
         font-weight: 400;
     }
@@ -54,7 +54,7 @@ main{
 }
 
 .user-figure{
-    background-color: #F2F5FD;
+    background-color: var(--white-color);
     border-radius: 50%;
     overflow: hidden;
     height: 140px;
@@ -62,18 +62,18 @@ main{
 
     & svg{
         padding: 15px;
-        fill: #ee6c4d;
+        fill: var(--orange-color);
     }
 }
 
 .user-name{
-    color: #F2F5FD;
+    color: var(--white-color);
     font-size: 1.2rem;
     font-weight: 500;
 }
 
 .user-mail{
-    color: #8E949F;
+    color: var(--gray-color);
     font-size: 1rem;
     font-weight: 400;
 }
@@ -88,7 +88,7 @@ main{
     & a{
         text-decoration:none;
         width: 100%;
-        background-color: #ee6c4d;
+        background-color: var(--orange-color);
         width: 100%;
         border: none;
         outline: none;
@@ -97,13 +97,13 @@ main{
 
         font-size: 1.2rem;
         font-weight: 600;
-        color: #F2F5FD;
+        color: var(--white-color);
 
         cursor: pointer;
         transition: 0.3s;
 
         &:hover{
-            background-color: #ea481f;
+            background-color: var(--dark-orange-color);
         }
     }
 }
@@ -116,7 +116,7 @@ main{
 
 .logout{
     text-decoration: none;
-    color: #F2F5FD;
+    color: var(--white-color);
     font-weight: 500;
     font-size: 1.2rem;
     transition: 0.3s;
@@ -129,7 +129,7 @@ main{
     &::before {
         content: "";
         position: absolute;
-        background-color: #ee6c4d;
+        background-color: var(--orange-color);
         height: 4px;
         width: 100%;
         left: 0;
@@ -141,10 +141,10 @@ main{
     }
 
     &:hover{
-        color: #ee6c4d;
+        color: var(--orange-color);
 
         & svg {
-            fill: #ee6c4d;
+            fill: var(--orange-color);
         }
     }
 
@@ -156,6 +156,6 @@ main{
     & svg{
         transition: 0.3s;
         height: 1.2rem;
-        fill: #F2F5FD;
+        fill: var(--white-color);
     }
 }

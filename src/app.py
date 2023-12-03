@@ -7,6 +7,7 @@ from routes.DashboardRoute import dash
 from routes.TestRoute import test
 
 app = Flask(__name__, static_url_path='/static')
+app.secret_key = 'grielatest'
 
 app.register_blueprint(inicio)
 app.register_blueprint(login)

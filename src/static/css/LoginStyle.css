@@ -19,19 +19,19 @@ form{
 
     & p{
         font-size: 1.1rem;
-        color: #293241;
+        color: var(--dark-blue-color);
     }
 
     & a{
         text-decoration: none;
         font-size: 1.1rem;
-        color: #ee6c4d;
-        border-bottom: solid 2px #ee6c4d;
+        color: var(--orange-color);
+        border-bottom: solid 2px var(--orange-color);
         transition: 0.3s;
 
         &:hover{
-            color: #ea481f;
-            border-color: #ea481f;
+            color: var(--dark-orange-color);
+            border-color: var(--dark-orange-color);
         }
     }
 }

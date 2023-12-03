@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Griela</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/Style.css')}}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/InicioStyle.css')}}"/>
-</head>
-<body>
-    <header>
-        <article class="logo-menu-container">
-            <div class="logo">
-                <p class="griela">Griela</p>
-                <p class="test">TEST</p>
-            </div>
-            <div class="menu-login-register-container">
-                <a href="/Login" class="login">Ingresar</a>
-                <a href="/Register" class="register">Unirse</a>
-            </div>
-        </article>
-    </header>
+{%extends 'Layout.html'%}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/InicioStyle.css')}}"/>
+{% endblock %}
+
+{% block main %}
     <main>
         <article class="inicio-container">
             <section>
@@ -103,18 +88,4 @@
             </section>
         </article>
     </main>
-    <footer>
-        <section class="footer-content-container">
-            <div class="footer-logo">
-                <p class="griela">Griela</h1>
-                <p class="test">TEST</h1>
-            </div>
-        </section>
-        <section class="copy-content-container">
-            <div>
-                <p>Copyright © 2023 - Universidad Nacional Hermilio Valdizan</p>
-            </div>
-        </section>
-    </footer>
-</body>
-</html>
+{% endblock %}
