@@ -1,5 +1,5 @@
 import flask
-from flask import render_template, request, redirect,url_for, session
+from flask import render_template, request, redirect,url_for, session, json, flash
 from config import auth, db
 
 register = flask.Blueprint('register', __name__)
@@ -24,7 +24,15 @@ def Inicio():
             session['usuario'] = user['localId']
 
             return redirect(url_for('dash.Dashboard'))
-        except:
-            print('No se puedo crear cuenta')
+        except Exception as e:
+            error_json = e.args[1]
+            error_details = json.loads(error_json).get('error', {})
+            error_message = error_details.get('message', '')
+            print(error_message)
+
+            if error_message == 'EMAIL_EXISTS':
+                flash('El correo ya se encuentra en uso.')
+            else:
+                flash('Error al registrar la cuenta.')
 
     return render_template('RegisterView.html')
