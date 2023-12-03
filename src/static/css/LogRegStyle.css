@@ -45,6 +45,24 @@ body {
     justify-content: center;
 }
 
+.message-container{
+    position: absolute;
+    top: calc(100% + 20px);
+    right: 0;
+    left: 0;
+
+    color: var(--white-color);
+    background-color: #e5383b;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 1px rgba(142, 148, 159, 0.2);
+    padding: 10px;
+    
+    & h3{
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
+}
+
 h1 {
     font-size: 3rem;
     color: var(--orange-color);
@@ -101,6 +119,7 @@ button {
     color: var(--white-color);
     transition: 0.5s;
     border-radius: 30px;
+    box-shadow: 5px 5px 5px 1px rgba(142, 148, 159, 0.2);
 
     &:hover{
         background-color: var(--dark-orange-color);
