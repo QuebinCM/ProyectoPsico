@@ -14,7 +14,8 @@
                     información sobre ti mismo relacionada a la depresión, ansiedad y estrés.</p>
                 <p>Antes de empezar ten en cuenta lo siguiente:</p>
                 <li>Para obtener resultados más precisos, responde con sinceridad. No hay respuestas correctas o incorrectas.</li>
-                <li>Asegúrate de tener el espacio y tiempo adecuados para completar el test sin distracciones.</li>
+                <li>Asegúrate de tener el espacio adecuado para completar el test sin distracciones.</li>
+                <li>Tómate el tiempo que consideres necesario. No hay prisa.</li>
                 <li>Tus respuestas son totalmente confidenciales. No compartiremos tu información con terceros.</li>
             </div>
             <div>
@@ -24,9 +25,24 @@
             </div>
         </section>
     </article>
-    <article class="test-form-container">
-        <form class="test-form" action="/actualizar" method="POST" onsubmit="return validarFormulario();">
-            <h1>Responde</h1>
+    <article class="start-test-container" id="start-test-container">
+        <section>
+            <h1>Comienza en cualquier momento</h1>
+            <figure class="img-container">
+                <img src="/static/img/ilustracion-start-test.png" alt="" width="500px" class="img">
+            </figure>
+            <button id="start-test">Comenzar</button>
+        </section>
+    </article>
+    <article class="test-form-container" id="test-form-container">
+        <form class="test-form" action="/Resultados" method="POST" onsubmit="return validarFormulario();">
+            <div class="title-test">
+                <h1>Responde</h1>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 448 512"><path d="M176 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h16V98.4C92.3 113.8 16 200 16 304c0 114.9 93.1 208 208 208s208-93.1 208-208c0-41.8-12.3-80.7-33.5-113.2l24.1-24.1c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L355.7 143c-28.1-23-62.2-38.8-99.7-44.6V64h16c17.7 0 32-14.3 32-32s-14.3-32-32-32H224 176zm72 192V320c0 13.3-10.7 24-24 24s-24-10.7-24-24V192c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>
+                    <input type="text" name="tiempo" id="tiempo" value="00:00" readonly>
+                </div>
+            </div>
             {% if loged != True %}
             <section class="datos-container">
                 <section class="card-test">
@@ -431,12 +447,12 @@
                             <label for="preg-15-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-15" id="preg-153-casi-nunca" value="1">
+                            <input type="radio" name="preg-15" id="preg-15-casi-nunca" value="1">
                             <label for="preg-15-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
                             <input type="radio" name="preg-15" id="preg-15-casi-siempre" value="2">
-                            <label for="preg-2-casi-siempre">Casi siempre</label>
+                            <label for="preg-15-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
                             <input type="radio" name="preg-15" id="preg-15-siempre" value="3">
@@ -528,7 +544,7 @@
                     <h2>19</h2>
                 </div>
                 <div class="content-preg">
-                    <h3>Mi carazón late rápido a pesar de no hacer esfuerzo</h3>
+                    <h3>Mi corazón late rápido a pesar de no hacer esfuerzo</h3>
                     <div class="preg-container">
                         <div>
                             <input type="radio" name="preg-19" id="preg-19-nunca" value="0">
@@ -604,7 +620,7 @@
             <button type="submit" class="button-enviar">Enviar</button>
         </form>
     </article>
-    <article class="test-form-container">
+    <article class="test-form-container" style="display: none;">
         <section class="card-test-preg-abierta">
             <h2>Recomendaciones</h2>
             <div>
@@ -621,4 +637,5 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ url_for('static', filename='js/ValidateTest.js')}}" defer></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/SelectRegister.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/StartTest.js')}}"></script>
 {% endblock %}

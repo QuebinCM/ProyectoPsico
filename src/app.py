@@ -5,6 +5,7 @@ from routes.LoginRoute import login
 from routes.RegisterRoute import register
 from routes.DashboardRoute import dash
 from routes.TestRoute import test
+from routes.ResultRoute import resultados
 
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = 'grielatest'
@@ -14,6 +15,7 @@ app.register_blueprint(login)
 app.register_blueprint(register)
 app.register_blueprint(dash)
 app.register_blueprint(test)
+app.register_blueprint(resultados)
 
 @app.route('/')
 def index():

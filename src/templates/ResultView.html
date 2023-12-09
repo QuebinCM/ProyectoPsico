@@ -1,0 +1,123 @@
+{%extends 'Layout.html'%}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ResultView.css')}}"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.js" integrity="sha512-7DgGWBKHddtgZ9Cgu8aGfJXvgcVv4SWSESomRtghob4k4orCBUTSRQ4s5SaC2Rz+OptMqNk0aHHsaUBk6fzIXw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
+{% endblock %}
+
+{% block main %}
+<main>
+    <article class="resultados-container">
+        <h1>Tus resultados</h1>
+        <section class="block">
+           <div class="informacion-container">
+                <div>
+                    <h2>Información personal</h2>
+                    <table class="table-informacion">
+                        <tr>
+                            <th>Nombre</th>
+                            <td>Kevin Claudio Montes</td>
+                        </tr>
+                        <tr>
+                            <th>Año de nacimiento</th>
+                            <td>2023-12-05</td>
+                        </tr>
+                        <tr>
+                            <th>Género</th>
+                            <td>Masculino</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h2>Información del test</h2>
+                    <table>
+                        <tr>
+                            <th>Test</th>
+                            <td>Depression Anxiety and Stress Scales - Youth version</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha</th>
+                            <td>2023-9-12</td>
+                        </tr>
+                        <tr>
+                            <th>Tiempo</th>
+                            <td>01:34</td>
+                        </tr>
+                    </table>
+                </div>
+           </div>
+            <div>
+                <h2>Resultados</h2>
+                <div class="resultados-grafica-container">
+                    <table>
+                        <tr>
+                            <td></td>
+                            <th>Puntuación</th>
+                            <th>Percentil</th>
+                        </tr>
+                        <tr>
+                            <th>Depresión</th>
+                            <td>13</td>
+                            <td>98</td>
+                        </tr>
+                        <tr>
+                            <th>Ansiedad</th>
+                            <td>5</td>
+                            <td>61</td>
+                        </tr>
+                        <tr>
+                            <th>Estres</th>
+                            <td>16</td>
+                            <td>97</td>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <td>34</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                    <canvas id="grafica"></canvas>
+                </div>
+            </div>
+            <div>
+                <h2>Recomendaciones</h2>
+                <h3 id="texto" value="">{{ texto }}</h3>
+            </div>
+            <div>
+                <h2>Respuestas</h2>
+                <table>
+                    <tr>
+                        <th width="320px">¿Qué hiciste esta última semana?</th>
+                        <td>{{preg_abierta}}</td>
+                    </tr>
+                </table>
+                <table class="tabla-preguntas">
+                    <tr>
+                        <th>N°</th>
+                        <th>Preguntas</th>
+                        <th>Nunca</th>
+                        <th>Casi nunca</th>
+                        <th>Casi siempre</th>
+                        <th>Siempre</th>
+                    </tr>
+                    {% for pregunta, respuesta in respuestas %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ pregunta }}</td>
+                        <td class='{{ "marcado" if respuesta == "0"}}'>0</td>
+                        <td class='{{ "marcado" if respuesta == "1"}}'>1</td>
+                        <td class='{{ "marcado" if respuesta == "2"}}'>2</td>
+                        <td class='{{ "marcado" if respuesta == "3"}}'>3</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </section>
+    </article>
+</main>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/GraficoCanvas.js')}}"></script>
+{% endblock %}

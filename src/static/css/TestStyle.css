@@ -39,14 +39,66 @@
     }
 }
 
+.start-test-container {
+    width: 100%;
+    background-color: var(--white-color);
+
+    & section {
+        width: 70%;
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 80px 0px;
+
+        & h1 {
+            color: var(--dark-blue-color);
+            font-weight: 600;
+            font-size: 2.5rem;
+        }
+
+        & button {
+            border: none;
+            color: var(--white-color);
+            background-color: var(--orange-color);
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 5px 5px 20px 1px rgba(142, 148, 159, 0.2);
+            transition: 0.3s;
+
+            font-size: 1.3rem;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--dark-orange-color);
+            }
+        }
+    }
+}
+
+.show-test {
+    display: block !important;
+}
+
+.hide-start {
+    display: none;
+}
+
 .test-form-container {
+    display: none;
+
     width: 100%;
     background-color: var(--white-color);
 
     & h1 {
-        color: var(--orange-color);
+        color: var(--dark-blue-color);
         font-weight: 600;
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     & form {
@@ -54,6 +106,36 @@
         width: 70%;
         margin: auto;
     }
+}
+
+.title-test {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & div {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 10px;
+
+        & svg {
+            fill: var(--dark-blue-color);
+        }
+    }
+}
+
+#tiempo {
+    color: var(--dark-blue-color) !important;
+    font-size: 2rem !important;
+    font-weight: 400 !important;
+
+    padding: 0 !important;
+
+    border: none;
+
+    text-align: right;
+    width: 100px;
 }
 
 .test-form {
@@ -155,7 +237,7 @@ input {
         font-size: 1.3rem;
         font-weight: 400;
         color: var(--dark-blue-color);
-        background-color: #F4F5F6;
+        background-color: #f4f5f6;
         width: 100%;
         text-align: center;
         cursor: pointer;
@@ -201,8 +283,8 @@ input[type="radio"]:checked + label {
 }
 
 /* Sweet Alert Style Custom */
-.swal2-popup{
-    & > h2{
+.swal2-popup {
+    & > h2 {
         color: var(--dark-blue-color) !important;
     }
 }
@@ -220,13 +302,13 @@ input[type="radio"]:checked + label {
     border-radius: 30px !important;
     background-color: var(--orange-color);
     transition: 0.3s !important;
-    &:hover{
+    &:hover {
         background-color: var(--dark-orange-color);
     }
 }
 
 /* Alert - Test */
-.preg-alert-container{
+.preg-alert-container {
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -235,7 +317,7 @@ input[type="radio"]:checked + label {
     gap: 10px;
 }
 
-.number-preg-alert{
+.number-preg-alert {
     width: 40px;
     height: 40px;
 
@@ -252,23 +334,23 @@ input[type="radio"]:checked + label {
 }
 
 /* Sin usuario */
-.datos-container{
+.datos-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
 
-    & h3{
+    & h3 {
         font-size: 1.3rem;
         font-weight: 500;
         color: var(--dark-blue-color);
     }
 }
 
-.genero-container{
+.genero-container {
     position: relative;
 }
 
-.select-genero{
+.select-genero {
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--dark-blue-color);
@@ -278,19 +360,19 @@ input[type="radio"]:checked + label {
     border: none;
 }
 
-#input-genero{
+#input-genero {
     cursor: pointer;
 }
 
-.genero-svg{
+.genero-svg {
     transition: 0.3s;
 }
 
-.trasform-svg{
+.trasform-svg {
     transform: rotate(180deg);
 }
 
-.genero-options{
+.genero-options {
     display: none;
 
     position: absolute;
@@ -302,12 +384,12 @@ input[type="radio"]:checked + label {
     background-color: white;
 
     box-shadow: 5px 5px 20px 1px rgba(142, 148, 159, 0.2);
-    
+
     border-radius: 5px;
 
     list-style: none;
 
-    & li{
+    & li {
         color: var(--dark-blue-color);
         font-size: 1.2rem;
         font-weight: 500;
@@ -319,18 +401,18 @@ input[type="radio"]:checked + label {
 
         transition: 0.3s;
 
-        &:hover{
+        &:hover {
             color: var(--white-color);
             background-color: var(--orange-color);
         }
     }
 }
 
-.show-opt{
+.show-opt {
     display: block;
 }
 
-.input-container{
+.input-container {
     display: flex;
     flex-direction: row;
     align-items: center;
