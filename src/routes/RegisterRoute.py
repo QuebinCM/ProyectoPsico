@@ -9,6 +9,8 @@ def Inicio():
     if request.method == 'POST':
         nombre = request.form['nombre']
         correo = request.form['correo']
+        nacimiento = request.form['nacimiento']
+        genero = request.form['genero']
         password = request.form['contra']
         try:
             user = auth.create_user_with_email_and_password(correo, password)
@@ -16,7 +18,9 @@ def Inicio():
 
             user_data  = {
             'nombre': nombre,
-            'correo': correo
+            'nacimiento': nacimiento,
+            'genero': genero,
+            'correo': correo,
             }
 
             db.collection('usuarios').document(user_id).set(user_data)

@@ -25,13 +25,34 @@
         </section>
     </article>
     <article class="test-form-container">
-        <form class="test-form">
+        <form class="test-form" action="/actualizar" method="POST" onsubmit="return validarFormulario();">
             <h1>Responde</h1>
+            {% if loged != True %}
+            <section class="datos-container">
+                <section class="card-test">
+                    <h3>¿Qué día naciste?</h3>
+                    <input type="date" name="nacimiento" required>
+                </section>
+                <section class="card-test">
+                    <h3>¿Cuál es tu género?</h3>
+                    <div class="input-label-container genero-container">
+                        <div class="input-container">
+                            <input type="text" name="genero" class="select-genero" id="input-genero" readonly required placeholder="Seleccionar">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="genero-svg" id="genero-svg" height="16" width="16" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </div>
+                        <div class="genero-options" id="genero-options">
+                            <li onclick="SelectOpt(this)">Masculino</li>
+                            <li onclick="SelectOpt(this)">Femenino</li>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            {% endif %}
             <section class="card-test-preg-abierta">
                 <h2>Pregunta abierta</h2>
                 <div>
                     <h3>¿Qué hiciste esta última semana?</h3>
-                    <input type="text" placeholder="Ingresa tu respuesta">
+                    <input type="text" placeholder="Ingresa tu respuesta" name="rutina_text" required>
                 </div>
             </section>
             <section class="card-test">
@@ -42,19 +63,19 @@
                     <h3>Me enojo por pequeñas cosas</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-1" id="preg-1-nunca">
+                            <input type="radio" name="preg-1" id="preg-1-nunca" value="0">
                             <label for="preg-1-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-1" id="preg-1-casi-nunca">
+                            <input type="radio" name="preg-1" id="preg-1-casi-nunca" value="1">
                             <label for="preg-1-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-1" id="preg-1-casi-siempre">
+                            <input type="radio" name="preg-1" id="preg-1-casi-siempre" value="2">
                             <label for="preg-1-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-1" id="preg-1-siempre">
+                            <input type="radio" name="preg-1" id="preg-1-siempre" value="3">
                             <label for="preg-1-siempre">Siempre</label>
                         </div>
                     </div>
@@ -68,19 +89,19 @@
                     <h3>Me siento mareado, como si estuviese a punto de desmayarme</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-2" id="preg-2-nunca">
+                            <input type="radio" name="preg-2" id="preg-2-nunca" value="0">
                             <label for="preg-2-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-2" id="preg-2-casi-nunca">
+                            <input type="radio" name="preg-2" id="preg-2-casi-nunca" value="1">
                             <label for="preg-2-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-2" id="preg-2-casi-siempre">
+                            <input type="radio" name="preg-2" id="preg-2-casi-siempre" value="2">
                             <label for="preg-2-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-2" id="preg-2-siempre">
+                            <input type="radio" name="preg-2" id="preg-2-siempre" value="3">
                             <label for="preg-2-siempre">Siempre</label>
                         </div>
                     </div>
@@ -94,19 +115,19 @@
                     <h3>No disfruto nada</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-3" id="preg-3-nunca">
+                            <input type="radio" name="preg-3" id="preg-3-nunca" value="0">
                             <label for="preg-3-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-3" id="preg-3-casi-nunca">
+                            <input type="radio" name="preg-3" id="preg-3-casi-nunca" value="1">
                             <label for="preg-3-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-3" id="preg-3-casi-siempre">
+                            <input type="radio" name="preg-3" id="preg-3-casi-siempre" value="2">
                             <label for="preg-3-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-3" id="preg-3-siempre">
+                            <input type="radio" name="preg-3" id="preg-3-siempre" value="3">
                             <label for="preg-3-siempre">Siempre</label>
                         </div>
                     </div>
@@ -120,19 +141,19 @@
                     <h3>Tengo problemas para respirar, a pesar de no hacer esfuerzo o estar enfermo</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-4" id="preg-4-nunca">
+                            <input type="radio" name="preg-4" id="preg-4-nunca" value="0">
                             <label for="preg-4-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-4" id="preg-4-casi-nunca">
+                            <input type="radio" name="preg-4" id="preg-4-casi-nunca" value="1">
                             <label for="preg-4-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-4" id="preg-4-casi-siempre">
+                            <input type="radio" name="preg-4" id="preg-4-casi-siempre" value="2">
                             <label for="preg-4-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-4" id="preg-4-siempre">
+                            <input type="radio" name="preg-4" id="preg-4-siempre" value="3">
                             <label for="preg-4-siempre">Siempre</label>
                         </div>
                     </div>
@@ -146,19 +167,19 @@
                     <h3>Odio mi vida</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-5" id="preg-5-nunca">
+                            <input type="radio" name="preg-5" id="preg-5-nunca" value="0">
                             <label for="preg-5-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-5" id="preg-5-casi-nunca">
+                            <input type="radio" name="preg-5" id="preg-5-casi-nunca" value="1">
                             <label for="preg-5-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-5" id="preg-5-casi-siempre">
+                            <input type="radio" name="preg-5" id="preg-5-casi-siempre" value="2"> 
                             <label for="preg-5-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-5" id="preg-5-siempre">
+                            <input type="radio" name="preg-5" id="preg-5-siempre" value="3">
                             <label for="preg-5-siempre">Siempre</label>
                         </div>
                     </div>
@@ -172,19 +193,19 @@
                     <h3>Sobreexagero mis reacciones ante cualquier situación</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-6" id="preg-6-nunca">
+                            <input type="radio" name="preg-6" id="preg-6-nunca" value="0">
                             <label for="preg-6-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-6" id="preg-6-casi-nunca">
+                            <input type="radio" name="preg-6" id="preg-6-casi-nunca" value="1">
                             <label for="preg-6-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-6" id="preg-6-casi-siempre">
+                            <input type="radio" name="preg-6" id="preg-6-casi-siempre" value="2">
                             <label for="preg-6-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-6" id="preg-6-siempre">
+                            <input type="radio" name="preg-6" id="preg-6-siempre" value="3">
                             <label for="preg-6-siempre">Siempre</label>
                         </div>
                     </div>
@@ -198,19 +219,19 @@
                     <h3>Mis manos permanecen temblorosas</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-7" id="preg-7-nunca">
+                            <input type="radio" name="preg-7" id="preg-7-nunca" value="0">
                             <label for="preg-7-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-7" id="preg-7-casi-nunca">
+                            <input type="radio" name="preg-7" id="preg-7-casi-nunca" value="1">
                             <label for="preg-7-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-7" id="preg-7-casi-siempre">
+                            <input type="radio" name="preg-7" id="preg-7-casi-siempre" value="2">
                             <label for="preg-7-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-7" id="preg-7-siempre">
+                            <input type="radio" name="preg-7" id="preg-7-siempre" value="3">
                             <label for="preg-7-siempre">Siempre</label>
                         </div>
                     </div>
@@ -224,19 +245,19 @@
                     <h3>Estoy estresado por muchas cosas</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-8" id="preg-8-nunca">
+                            <input type="radio" name="preg-8" id="preg-8-nunca" value="0">
                             <label for="preg-8-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-8" id="preg-8-casi-nunca">
+                            <input type="radio" name="preg-8" id="preg-8-casi-nunca" value="1">
                             <label for="preg-8-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-8" id="preg-8-casi-siempre">
+                            <input type="radio" name="preg-8" id="preg-8-casi-siempre" value="2">
                             <label for="preg-8-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-8" id="preg-8-siempre">
+                            <input type="radio" name="preg-8" id="preg-8-siempre" value="3">
                             <label for="preg-8-siempre">Siempre</label>
                         </div>
                     </div>
@@ -250,19 +271,19 @@
                     <h3>Me siento con miedo</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-9" id="preg-9-nunca">
+                            <input type="radio" name="preg-9" id="preg-9-nunca" value="0">
                             <label for="preg-9-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-9" id="preg-9-casi-nunca">
+                            <input type="radio" name="preg-9" id="preg-9-casi-nunca" value="1">
                             <label for="preg-9-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-9" id="preg-9-casi-siempre">
+                            <input type="radio" name="preg-9" id="preg-9-casi-siempre" value="2">
                             <label for="preg-9-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-9" id="preg-9-siempre">
+                            <input type="radio" name="preg-9" id="preg-9-siempre" value="3">
                             <label for="preg-9-siempre">Siempre</label>
                         </div>
                     </div>
@@ -276,19 +297,19 @@
                     <h3>No hay nada interesante que pueda hacer</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-10" id="preg-10-nunca">
+                            <input type="radio" name="preg-10" id="preg-10-nunca" value="0">
                             <label for="preg-10-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-10" id="preg-10-casi-nunca">
+                            <input type="radio" name="preg-10" id="preg-10-casi-nunca" value="1">
                             <label for="preg-10-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-10" id="preg-10-casi-siempre">
+                            <input type="radio" name="preg-10" id="preg-10-casi-siempre" value="2">
                             <label for="preg-10-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-10" id="preg-10-siempre">
+                            <input type="radio" name="preg-10" id="preg-10-siempre" value="3">
                             <label for="preg-10-siempre">Siempre</label>
                         </div>
                     </div>
@@ -302,19 +323,19 @@
                     <h3>Me irrito facilmente</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-11" id="preg-11-nunca">
+                            <input type="radio" name="preg-11" id="preg-11-nunca" value="0">
                             <label for="preg-11-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-11" id="preg-11-casi-nunca">
+                            <input type="radio" name="preg-11" id="preg-11-casi-nunca" value="1"> 
                             <label for="preg-11-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-11" id="preg-11-casi-siempre">
+                            <input type="radio" name="preg-11" id="preg-11-casi-siempre" value="2">
                             <label for="preg-11-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-11" id="preg-11-siempre">
+                            <input type="radio" name="preg-11" id="preg-11-siempre" value="3">
                             <label for="preg-11-siempre">Siempre</label>
                         </div>
                     </div>
@@ -328,19 +349,19 @@
                     <h3>Encuentro difícil relajarme</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-12" id="preg-12-nunca">
+                            <input type="radio" name="preg-12" id="preg-12-nunca" value="0">
                             <label for="preg-12-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-12" id="preg-12-casi-nunca">
+                            <input type="radio" name="preg-12" id="preg-12-casi-nunca" value="1">
                             <label for="preg-12-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-12" id="preg-12-casi-siempre">
+                            <input type="radio" name="preg-12" id="preg-12-casi-siempre" value="2">
                             <label for="preg-12-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-12" id="preg-12-siempre">
+                            <input type="radio" name="preg-12" id="preg-12-siempre" value="3">
                             <label for="preg-12-siempre">Siempre</label>
                         </div>
                     </div>
@@ -354,19 +375,19 @@
                     <h3>No puedo dejar de sentirme triste</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-13" id="preg-13-nunca">
+                            <input type="radio" name="preg-13" id="preg-13-nunca" value="0">
                             <label for="preg-13-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-13" id="preg-13-casi-nunca">
+                            <input type="radio" name="preg-13" id="preg-13-casi-nunca" value="1">
                             <label for="preg-13-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-13" id="preg-13-casi-siempre">
+                            <input type="radio" name="preg-13" id="preg-13-casi-siempre" value="2"> 
                             <label for="preg-13-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-13" id="preg-13-siempre">
+                            <input type="radio" name="preg-13" id="preg-13-siempre" value="3">
                             <label for="preg-13-siempre">Siempre</label>
                         </div>
                     </div>
@@ -380,19 +401,19 @@
                     <h3>Me molesta cuando la gente me interrumpe</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-14" id="preg-14-nunca">
+                            <input type="radio" name="preg-14" id="preg-14-nunca" value="0">
                             <label for="preg-14-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-14" id="preg-14-casi-nunca">
+                            <input type="radio" name="preg-14" id="preg-14-casi-nunca" value="1">
                             <label for="preg-14-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-14" id="preg-14-casi-siempre">
+                            <input type="radio" name="preg-14" id="preg-14-casi-siempre" value="2">
                             <label for="preg-14-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-14" id="preg-14-siempre">
+                            <input type="radio" name="preg-14" id="preg-14-siempre" value="3">
                             <label for="preg-14-siempre">Siempre</label>
                         </div>
                     </div>
@@ -406,19 +427,19 @@
                     <h3>Siento que estoy a punto de entrar en pánico</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-15" id="preg-15-nunca">
+                            <input type="radio" name="preg-15" id="preg-15-nunca" value="0">
                             <label for="preg-15-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-15" id="preg-153-casi-nunca">
+                            <input type="radio" name="preg-15" id="preg-153-casi-nunca" value="1">
                             <label for="preg-15-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-15" id="preg-15-casi-siempre">
+                            <input type="radio" name="preg-15" id="preg-15-casi-siempre" value="2">
                             <label for="preg-2-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-15" id="preg-15-siempre">
+                            <input type="radio" name="preg-15" id="preg-15-siempre" value="3">
                             <label for="preg-15-siempre">Siempre</label>
                         </div>
                     </div>
@@ -432,19 +453,19 @@
                     <h3>Me odio a mi mismo</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-16" id="preg-16-nunca">
+                            <input type="radio" name="preg-16" id="preg-16-nunca" value="0">
                             <label for="preg-16-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-16" id="preg-16-casi-nunca">
+                            <input type="radio" name="preg-16" id="preg-16-casi-nunca" value="1">
                             <label for="preg-16-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-16" id="preg-16-casi-siempre">
+                            <input type="radio" name="preg-16" id="preg-16-casi-siempre" value="2">
                             <label for="preg-16-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-16" id="preg-16-siempre">
+                            <input type="radio" name="preg-16" id="preg-16-siempre" value="3">
                             <label for="preg-16-siempre">Siempre</label>
                         </div>
                     </div>
@@ -458,19 +479,19 @@
                     <h3>Siento que no sirvo para nada</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-17" id="preg-17-nunca">
+                            <input type="radio" name="preg-17" id="preg-17-nunca" value="0">
                             <label for="preg-17-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-17" id="preg-17-casi-nunca">
+                            <input type="radio" name="preg-17" id="preg-17-casi-nunca" value="1">
                             <label for="preg-17-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-17" id="preg-17-casi-siempre">
+                            <input type="radio" name="preg-17" id="preg-17-casi-siempre" value="2">
                             <label for="preg-17-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-17" id="preg-17-siempre">
+                            <input type="radio" name="preg-17" id="preg-17-siempre" value="3">
                             <label for="preg-17-siempre">Siempre</label>
                         </div>
                     </div>
@@ -484,19 +505,19 @@
                     <h3>Me molesto facilmente</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-18" id="preg-18-nunca">
+                            <input type="radio" name="preg-18" id="preg-18-nunca" value="0">
                             <label for="preg-18-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-18" id="preg-18-casi-nunca">
+                            <input type="radio" name="preg-18" id="preg-18-casi-nunca" value="1">
                             <label for="preg-18-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-18" id="preg-18-casi-siempre">
+                            <input type="radio" name="preg-18" id="preg-18-casi-siempre" value="2"> 
                             <label for="preg-18-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-18" id="preg-18-siempre">
+                            <input type="radio" name="preg-18" id="preg-18-siempre" value="3">
                             <label for="preg-18-siempre">Siempre</label>
                         </div>
                     </div>
@@ -510,19 +531,19 @@
                     <h3>Mi carazón late rápido a pesar de no hacer esfuerzo</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-19" id="preg-19-nunca">
+                            <input type="radio" name="preg-19" id="preg-19-nunca" value="0">
                             <label for="preg-19-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-19" id="preg-19-casi-nunca">
+                            <input type="radio" name="preg-19" id="preg-19-casi-nunca" value="1"> 
                             <label for="preg-19-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-19" id="preg-19-casi-siempre">
+                            <input type="radio" name="preg-19" id="preg-19-casi-siempre" value="2">
                             <label for="preg-19-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-19" id="preg-19-siempre">
+                            <input type="radio" name="preg-19" id="preg-19-siempre" value="3">
                             <label for="preg-19-siempre">Siempre</label>
                         </div>
                     </div>
@@ -536,19 +557,19 @@
                     <h3>Siento miedo sin razón aparente</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-20" id="preg-20-nunca">
+                            <input type="radio" name="preg-20" id="preg-20-nunca" value="0">
                             <label for="preg-20-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-20" id="preg-20-casi-nunca">
+                            <input type="radio" name="preg-20" id="preg-20-casi-nunca" value="1">
                             <label for="preg-20-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-20" id="preg-320-casi-siempre">
+                            <input type="radio" name="preg-20" id="preg-20-casi-siempre" value="2">
                             <label for="preg-20-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-20" id="preg-20-siempre">
+                            <input type="radio" name="preg-20" id="preg-20-siempre" value="3">
                             <label for="preg-20-siempre">Siempre</label>
                         </div>
                     </div>
@@ -562,19 +583,19 @@
                     <h3>Siento que mi vida es terrible</h3>
                     <div class="preg-container">
                         <div>
-                            <input type="radio" name="preg-21" id="preg-21-nunca">
+                            <input type="radio" name="preg-21" id="preg-21-nunca" value="0">
                             <label for="preg-21-nunca">Nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-21" id="preg-21-casi-nunca">
+                            <input type="radio" name="preg-21" id="preg-21-casi-nunca" value="1">
                             <label for="preg-21-casi-nunca">Casi nunca</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-21" id="preg-21-casi-siempre">
+                            <input type="radio" name="preg-21" id="preg-21-casi-siempre" value="2">
                             <label for="preg-21-casi-siempre">Casi siempre</label>
                         </div>
                         <div>
-                            <input type="radio" name="preg-321" id="preg-21-siempre">
+                            <input type="radio" name="preg-21" id="preg-21-siempre" value="3">
                             <label for="preg-21-siempre">Siempre</label>
                         </div>
                     </div>
@@ -583,5 +604,21 @@
             <button type="submit" class="button-enviar">Enviar</button>
         </form>
     </article>
+    <article class="test-form-container">
+        <section class="card-test-preg-abierta">
+            <h2>Recomendaciones</h2>
+            <div>
+                <h3 id="texto" value="">
+                    {{ texto }}
+                </h3>
+            </div>
+        </section>
+    </article>
 </main>
+{% endblock %}
+
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ url_for('static', filename='js/ValidateTest.js')}}" defer></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/SelectRegister.js')}}"></script>
 {% endblock %}

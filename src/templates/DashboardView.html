@@ -40,6 +40,7 @@
                 </div>
             </div>
         </article>
+        {% if comprobar_tests %}
         <article class="dashboard-container">
             <section class="resumen-container block">
                 <div class="block-title">
@@ -77,6 +78,17 @@
                 </div>
             </section>
         </article>
+        {% else %}
+        <article class="dashboard-container-no-test">
+            <section class="block-no-test block">
+                <h2>No cuenta con ningún test aún</h2>
+                <figure class="img-no-test-container">
+                    <img src="/static/img/ilustracion-no-test.png" alt="" width="100%" class="img-que">
+                </figure>
+                <h3>Inicia un nuevo test en la barra de la izquierda</h3>
+            </section>
+        </article>
+        {% endif %}
     </main>
 </body>
 </html>

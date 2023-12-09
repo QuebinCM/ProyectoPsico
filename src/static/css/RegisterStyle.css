@@ -3,15 +3,19 @@
 
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     justify-content: center;
     align-items: center;
+
+    width: 500px;
 }
 
 form{
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
+
+    width: 100%;
 }
 
 .content-container{
@@ -36,4 +40,82 @@ form{
             border-color: var(--dark-orange-color);
         }
     }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.row-form-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.genero-container{
+    position: relative;
+}
+
+.select-genero{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--dark-blue-color);
+    outline: none;
+    background-color: transparent;
+    padding: 5px 0px !important;
+
+    border: none;
+}
+
+#input-genero{
+    cursor: pointer;
+}
+
+.genero-svg{
+    transition: 0.3s;
+}
+
+.trasform-svg{
+    transform: rotate(180deg);
+}
+
+.genero-options{
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 3px);
+    left: 0;
+    right: 0;
+
+    background-color: var(--white-color);
+
+    box-shadow: 5px 5px 20px 1px rgba(142, 148, 159, 0.2);
+    
+    border-radius: 5px;
+
+    list-style: none;
+
+    & li{
+        color: var(--dark-blue-color);
+        font-size: 1.2rem;
+        font-weight: 500;
+
+        padding: 5px 10px;
+        cursor: pointer;
+
+        border-radius: 5px;
+
+        transition: 0.3s;
+
+        &:hover{
+            color: var(--white-color);
+            background-color: var(--orange-color);
+        }
+    }
+}
+
+.show-opt{
+    display: block;
 }

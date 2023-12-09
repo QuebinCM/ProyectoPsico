@@ -7,6 +7,37 @@
     gap: 30px;
 }
 
+.dashboard-container-no-test{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-no-test-container{
+    width: 500px;
+}
+
+.block-no-test{
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+
+    & h2{
+        color: var(--orange-color);
+        font-size: 1.8rem;
+    }
+
+    & h3{
+        color: var(--dark-blue-color);
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+}
+
 .block {
     background-color: white;
     padding: 30px;
