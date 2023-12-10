@@ -60,11 +60,11 @@
                     <p><b>Correo:</b> grielatest@gmail.com</p>
                 </div>
             </div>
-            <form action="" class="form-suggest">
+            <form action="/Correo" method="POST" class="form-suggest">
                 <h2>Sugerencias</h2>
-                <input type="text" placeholder="Nombre" required>
-                <input type="text" placeholder="Correo" required>
-                <textarea name="" id="" rows="5" placeholder="Mensaje" required></textarea>
+                <input type="text" name="nombre_sug" placeholder="Nombre" required>
+                <input type="email" name="correo_sug" placeholder="Correo" required>
+                <textarea name="mensaje_sug" id="" rows="5" placeholder="Mensaje" required></textarea>
                 <button type="submit">Enviar</button>
             </form>
         </section>

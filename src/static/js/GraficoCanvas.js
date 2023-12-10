@@ -4,7 +4,7 @@ var data = {
   labels: ['Depresión', 'Ansiedad', 'Estres'],
   datasets: [{
     label: 'Percentiles',
-    data: [98, 61, 97],
+    data: columnas,
     backgroundColor: [
         'rgba(112, 224, 0)',
         'rgba(255, 234, 0)',

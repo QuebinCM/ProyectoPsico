@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+    <title>Griela Test</title>
+    <link rel="stylesheet" href="/static/css/Style.css"/>
+    <link rel="stylesheet" href="/static/css/LayoutStyle.css"/>
+    
+<link rel="stylesheet" href="/static/css/ResultView.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.js" integrity="sha512-7DgGWBKHddtgZ9Cgu8aGfJXvgcVv4SWSESomRtghob4k4orCBUTSRQ4s5SaC2Rz+OptMqNk0aHHsaUBk6fzIXw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <article class="logo-menu-container">
+            <a href="/Inicio" class="logo">
+                <p class="griela">Griela</p>
+                <p class="test">TEST</p>
+            </a>
+            
+            <div class="menu-login-register-container">
+                <a href="/Login" class="login">Ingresar</a>
+                <a href="/Register" class="register">Unirse</a>
+            </div>
+            
+        </article>
+    </header>
+    
+<main>
+    <article class="resultados-container">
+        <h1>Tus resultados</h1>
+        <section class="block">
+           <div class="informacion-container">
+                <div>
+                    <h2>Información personal</h2>
+                    <table class="table-informacion">
+                        <tr>
+                            <th>Nombre</th>
+                            
+                            <td id="nombre-resultado">Usuario sin registrar</td>
+                            
+                        </tr>
+                        <tr>
+                            <th>Fecha de nacimiento</th>
+                            <td id="nacimiento-resultado">2015-05-12</td>
+                        </tr>
+                        <tr>
+                            <th>Género</th>
+                            <td id="genero-resultado">Masculino</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h2>Información del test</h2>
+                    <table>
+                        <tr>
+                            <th>Test</th>
+                            <td>Depression Anxiety and Stress Scales - Youth version</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha</th>
+                            <td id="fecha-resultado">2023-12-10</td>
+                        </tr>
+                        <tr>
+                            <th>Tiempo</th>
+                            <td id="tiempo-resultado">00:26</td>
+                        </tr>
+                    </table>
+                </div>
+           </div>
+            <div>
+                <h2>Resultados</h2>
+                <div class="resultados-grafica-container">
+                    <table>
+                        <tr>
+                            <td></td>
+                            <th>Puntuación</th>
+                            <th>Percentil</th>
+                        </tr>
+                        <tr>
+                            <th>Depresión</th>
+                            <td id="depresion-puntaje">12</td>
+                            <td id="depresion-percentil">96</td>
+                        </tr>
+                        <tr>
+                            <th>Ansiedad</th>
+                            <td id="ansiedad-puntaje">11</td>
+                            <td id="ansiedad-percentil">96</td>
+                        </tr>
+                        <tr>
+                            <th>Estres</th>
+                            <td id="estres-puntaje">8</td>
+                            <td id="estres-percentil">53</td>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <td id="total">31</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                    <canvas id="grafica"></canvas>
+                </div>
+            </div>
+            <div>
+                <h2>Recomendaciones</h2>
+                <h3 id="texto" value="">Lo primero que quiero decirte es que es normal sentir estrés y ansiedad, especialmente cuando tienes exámenes importantes.\n\nAquí hay algunas estrategias que podrían ayudarte a manejar tus niveles de estrés, ansiedad y depresión:\n\n1. **Manejo del tiempo**: Trata de establecer un horario realista para tus estudios y descansos. Demasiado estudio puede llevar a la fatiga, lo que reduce tu capacidad para aprender y retener información. Recuerda descansar cada cierto tiempo.\n\n2. **Ejercicios de respiración**: Son una forma efectiva de reducir los niveles de estrés y ansiedad. Puedes intentar respirar profundamente durante unos minutos.\n\n3. **Mantén una dieta equilibrada**: La comida que consumes puede tener un impacto significativo en cómo te sientes. Trata de incorporar alimentos ricos en omega-3, como el pescado y las nueces, así como alimentos ricos en vitaminas, como las frutas y verduras.\n\n4. **Realiza actividad física**: El ejercicio es una excelente manera de reducir los síntomas de la ansiedad y depresión. No tiene que ser intensa, incluso caminar o estirarse puede ser de gran ayuda.\n\n5. **Duerme bien**: El sueño es crucial para la salud mental. Intenta dormir lo suficiente cada noche y mantener un horario regular de sueño.\n\n6. **Meditación**: La meditación puede ayudarte a relajarte y disminuir tus niveles de estrés y ansiedad. Hay muchas aplicaciones y videos gratuitos en línea que pueden guiarte a través de sesiones de meditación.\n\n7. **Habla sobre tus sentimientos**: Compartir tus sentimientos con amigos cercanos, un consejero o un terapeuta puede ser muy útil.\n\nSi puedes, sería beneficioso buscar la ayuda de un profesional de la salud mental. Los niveles de ansiedad y depresión que describes son bastante altos y un profesional podría proporcionarte la ayuda y el apoyo que necesitas.</h3>
+            </div>
+            <div>
+                <h2>Respuestas</h2>
+                <table>
+                    <tr>
+                        <th width="320px">¿Qué hiciste esta última semana?</th>
+                        <td id="abierta-resultado">Estudie para mis últimos exámenes</td>
+                    </tr>
+                </table>
+                <table class="tabla-preguntas">
+                    <tr>
+                        <th>N°</th>
+                        <th>Preguntas</th>
+                        <th>Nunca</th>
+                        <th>Casi nunca</th>
+                        <th>Casi siempre</th>
+                        <th>Siempre</th>
+                    </tr>
+                    
+                </table>
+            </div>
+        </section>
+        <button id="descargar-button">Descargar</button>
+    </article>
+</main>
+
+    <footer>
+        <section class="footer-content-container">
+            <div class="footer-about-us">
+                <div class="logo-about">
+                    <p class="griela">Griela</h1>
+                    <p class="test">TEST</h1>
+                </div>
+                <p>Nos preocupamos por la salud mental de los jóvenes y los acompañamos en su viaje hacia el bienestar emocional.</p>
+                <div class="correo-about">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1.2rem" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                    <p><b>Correo:</b> grielatest@gmail.com</p>
+                </div>
+            </div>
+            <form action="/Correo" method="POST" class="form-suggest">
+                <h2>Sugerencias</h2>
+                <input type="text" name="nombre_sug" placeholder="Nombre" required>
+                <input type="email" name="correo_sug" placeholder="Correo" required>
+                <textarea name="mensaje_sug" id="" rows="5" placeholder="Mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <section class="copy-content-container">
+            <div>
+                <p>Copyright © 2023 - Todos los derechos reservados.</p>
+            </div>
+        </section>
+    </footer>
+    
+<script>
+    var columnas = [parseInt("96",10), parseInt("96",10), parseInt("53",10) ]
+</script>
+<script type="text/javascript" src="/static/js/GraficoCanvas.js"></script>
+<script type="text/javascript" src="/static/js/Download.js"></script>
+
+</body>
+</html>

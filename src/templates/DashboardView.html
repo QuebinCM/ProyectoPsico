@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Style.css')}}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/SidebarStyle.css')}}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/DashboardStyle.css')}}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.js" integrity="sha512-7DgGWBKHddtgZ9Cgu8aGfJXvgcVv4SWSESomRtghob4k4orCBUTSRQ4s5SaC2Rz+OptMqNk0aHHsaUBk6fzIXw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <main>
@@ -50,6 +52,40 @@
                     </div>
                     <div class="bar"></div>
                 </div>
+                <div>
+                    <h4>Información personal</h4>
+                    <table class="table-informacion">
+                        <tr>
+                            <th>Nombre</th>
+                            <td id="nombre-resultado">{{nombre}}</td>
+                        </tr>
+                        <tr>
+                            <th>Nacimiento</th>
+                            <td id="nacimiento-resultado">{{datos.nacimiento}}</td>
+                        </tr>
+                        <tr>
+                            <th>Género</th>
+                            <td id="genero-resultado">{{datos.genero}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h4>Información del test</h4>
+                    <table>
+                        <tr>
+                            <th>Test</th>
+                            <td>DASSY</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha</th>
+                            <td id="fecha-resultado">{{datos.fecha}}</td>
+                        </tr>
+                        <tr>
+                            <th>Tiempo</th>
+                            <td id="tiempo-resultado">{{datos.tiempo}}</td>
+                        </tr>
+                    </table>
+                </div>
             </section>
             <section class="recomendaciones-container block">
                 <div class="block-title">
@@ -59,6 +95,9 @@
                     </div>
                     <div class="bar"></div>
                 </div>
+                <div class="recomendaciones-content">
+                    <p>{{datos.recomendaciones}}</p>
+                </div>
             </section>
             <section class="historial-container block">
                 <div class="block-title">
@@ -66,6 +105,17 @@
                         <h2>Historial</h2>
                     </div>
                     <div class="bar"></div>
+                </div>
+                <div class="historial-card-container">
+                    {% for test in documentos_tests %}
+                    <div class="historial-card">
+                        <div>
+                            <h1>{{ test.id }}</h1>
+                            <h2>{{ test.fecha }}</h2>
+                        </div>
+                        <a href="/Historial/{{ test.id }}">Ver</a>
+                    </div>
+                    {% endfor %}
                 </div>
             </section>
             <section class="resultados-container block">
@@ -75,6 +125,36 @@
                         <h2>Resultados</h2>
                     </div>
                     <div class="bar"></div>
+                </div>
+                <div class="resultados-grafica-container">
+                    <table>
+                        <tr>
+                            <td></td>
+                            <th>Puntuación</th>
+                            <th>Percentil</th>
+                        </tr>
+                        <tr>
+                            <th>Depresión</th>
+                            <td id="depresion-puntaje">{{puntajes.depresion}}</td>
+                            <td id="depresion-percentil">{{percentiles.depresion}}</td>
+                        </tr>
+                        <tr>
+                            <th>Ansiedad</th>
+                            <td id="ansiedad-puntaje">{{puntajes.ansiedad}}</td>
+                            <td id="ansiedad-percentil">{{percentiles.ansiedad}}</td>
+                        </tr>
+                        <tr>
+                            <th>Estres</th>
+                            <td id="estres-puntaje">{{puntajes.estres}}</td>
+                            <td id="estres-percentil">{{percentiles.estres}}</td>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <td id="total">{{puntajes.total}}</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                    <canvas id="grafica"></canvas>
                 </div>
             </section>
         </article>
@@ -92,3 +172,10 @@
     </main>
 </body>
 </html>
+
+{% block script %}
+<script>
+    var columnas = [parseInt("{{percentiles.depresion}}",10), parseInt("{{percentiles.ansiedad}}",10), parseInt("{{percentiles.estres}}",10) ]
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/GraficoCanvas.js')}}"></script>
+{% endblock %}

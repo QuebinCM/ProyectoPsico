@@ -1,7 +1,7 @@
 {%extends 'Layout.html'%}
 
 {% block link %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/ResultView.css')}}"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/HistorialView.css')}}"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.js" integrity="sha512-7DgGWBKHddtgZ9Cgu8aGfJXvgcVv4SWSESomRtghob4k4orCBUTSRQ4s5SaC2Rz+OptMqNk0aHHsaUBk6fzIXw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -87,7 +87,7 @@
             </div>
             <div>
                 <h2>Recomendaciones</h2>
-                <h3 id="texto" value="">{{ texto }}</h3>
+                <h3 id="texto" value="">{{ recomendaciones }}</h3>
             </div>
             <div>
                 <h2>Respuestas</h2>
@@ -106,15 +106,15 @@
                         <th>Casi siempre</th>
                         <th>Siempre</th>
                     </tr>
-                    {% for pregunta, respuesta in respuestas %}
-                    <tr>
-                        <td>{{ loop.index }}</td>
-                        <td>{{ pregunta }}</td>
-                        <td class='{{ "marcado" if respuesta == "0"}}'>0</td>
-                        <td class='{{ "marcado" if respuesta == "1"}}'>1</td>
-                        <td class='{{ "marcado" if respuesta == "2"}}'>2</td>
-                        <td class='{{ "marcado" if respuesta == "3"}}'>3</td>
-                    </tr>
+                    {% for key, value in respuestas.items() %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ key }}</td>
+                            <td class='{{ "marcado" if value == "0"}}'>0</td>
+                            <td class='{{ "marcado" if value == "1"}}'>1</td>
+                            <td class='{{ "marcado" if value == "2"}}'>2</td>
+                            <td class='{{ "marcado" if value == "3"}}'>3</td>
+                        </tr>
                     {% endfor %}
                 </table>
             </div>
