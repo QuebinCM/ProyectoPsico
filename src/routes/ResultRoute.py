@@ -165,12 +165,13 @@ def Resultados():
             grupo, 
             percentil_datos
         )
+        
 
         message_thread = client.beta.threads.create(
         messages=[
             {
             "role": "user",
-            "content": "Tengo ansiedad de nivel "+str(suma_ansiedad)+", tengo estres nivel "+str(suma_estres)+", tengo depresión nivel "+str(suma_depresion)+", dame recomendaciones y consejos basados en los resultados arrojados por el formulario y en lo que hice la última semana: "+rutina_text
+            "content": "Tengo ansiedad de nivel "+str(suma_ansiedad)+", tengo estres nivel "+str(suma_estres)+", tengo depresión nivel "+str(suma_depresion)+" mis datos por percentiles son los siguientes: Estres "+str(percentiles_grupo["estres"])+" ansiedad "+str(percentiles_grupo["ansiedad"])+" depresión "+str(percentiles_grupo["depresion"])+", dame recomendaciones y consejos basados en los resultados arrojados por el formulario y en lo que hice la última semana: "+rutina_text
             },
         ]
         )
@@ -181,7 +182,7 @@ def Resultados():
         thread_message = client.beta.threads.messages.create(
         thread_id_interno,
         role="user",
-        content="Tengo ansiedad de nivel "+str(suma_ansiedad)+", tengo estres nivel "+str(suma_estres)+", tengo depresión nivel "+str(suma_depresion)+", dame recomendaciones y consejos basados en los resultados arrojados por el formulario y en lo que hice la última semana: "+rutina_text,
+        content="Tengo ansiedad de nivel "+str(suma_ansiedad)+", tengo estres nivel "+str(suma_estres)+", tengo depresión nivel "+str(suma_depresion)+" mis datos por percentiles son los siguientes: Estres "+str(percentiles_grupo["estres"])+" ansiedad "+str(percentiles_grupo["ansiedad"])+" depresión "+str(percentiles_grupo["depresion"])+", dame recomendaciones y consejos basados en los resultados arrojados por el formulario y en lo que hice la última semana: "+rutina_text,
         )
         print(thread_message)
         print(thread_message.id)
@@ -191,7 +192,7 @@ def Resultados():
         run = client.beta.threads.runs.create(
         thread_id=thread_id_interno,
         assistant_id="asst_MNbQa1tvLUw2xVdkpJaecDOR",
-        instructions="Tengo ansiedad de nivel "+str(suma_ansiedad)+", tengo estres nivel "+str(suma_estres)+", tengo depresión nivel"+str(suma_depresion)+", dame recomendaciones y consejos basados en los resultados arrojados por el formulario y en lo que hice la última semana: "+rutina_text
+        instructions="Tengo ansiedad de nivel "+str(suma_ansiedad)+", tengo estres nivel "+str(suma_estres)+", tengo depresión nivel "+str(suma_depresion)+" mis datos por percentiles son los siguientes: Estres "+str(percentiles_grupo["estres"])+" ansiedad "+str(percentiles_grupo["ansiedad"])+" depresión "+str(percentiles_grupo["depresion"])+", dame recomendaciones y consejos basados en los resultados arrojados por el formulario y en lo que hice la última semana: "+rutina_text
         )
         print(run)
 
@@ -237,8 +238,16 @@ def Resultados():
                 'percentiles': percentiles_grupo,
                 'fecha_creacion': datetime.now()
             })
-
-        return render_template('ResultView.html', respuestas=respuestas, texto=resultados[0], 
+            texto_pre=str(resultados[0])
+            print('\n'+texto_pre)
+            texto_procesado=texto_pre.replace('\n', '')
+            print('\n'+texto_procesado)
+            texto_procesado = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', texto_procesado)
+            texto_procesado = texto_procesado.replace('\n\n', '<br><br>')
+            texto_procesado = texto_procesado.replace('\n', '<br>')
+            
+            print('\n'+texto_procesado)
+        return render_template('ResultView.html', respuestas=respuestas, texto=texto_procesado, 
                                loged = loged, nombre = nombre, correo = correo ,datos = datos, 
                                preg_abierta = rutina_text, puntajes = puntajes, percentiles = percentiles_grupo)
     else:
